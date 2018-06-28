@@ -1,114 +1,86 @@
-html * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  *, *:after, *:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-size: 100%;
-    font-family: "Ubuntu", sans-serif;
-    color: #3e3947;
-    background-color: white;
-  }
-  
-  body, html {
-    height: 100%;
-  }
-  
-  a {
-    color: #3e3947;
-    text-decoration: none;
-  }
-  
-  img {
-    max-width: 100%;
-  }
+body {
+  font-size: 100%;
+  font-family: "Ubuntu", sans-serif;
+  color: transparent;
+}
 
-  .vertical-nav {
-    position: fixed;
-    right: 40px;
-    top: 50%;
-    bottom: auto;
-    text-align: right;
-        /* -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        z-index: 1; */
-  }
-  .vertical-nav li {
-    text-align: right;
-  }
-  .vertical-nav a {
-    display: inline-block;
-    /* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; */
-  }
-  /* .vertical-nav a:after {
-    content: "";
-    display: table;
-    clear: both;
-  } */
-  .vertical-nav a span {
-    float: right;
-    display: inline-block;
-    /* -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    -ms-transform: scale(0.6);
-    -o-transform: scale(0.6);
-    transform: scale(0.6); */
-  }
-  /* .vertical-nav a:hover span {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  } */
-  .vertical-nav a:hover .label {
-    opacity: 1;
-  }
-  .vertical-nav a.is-selected .dot {
-    background-color: white;
-  }
-  .vertical-nav .dot {
-    position: relative;
-    /* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
-    top: 8px;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background-color: #d88683;
-    /* -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
-    -moz-transition: -moz-transform 0.2s, background-color 0.5s;
-    transition: transform 0.2s, background-color 0.5s;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    transform-origin: 50% 50%; */
-  }
-  .vertical-nav .label {
-    position: relative;
-    margin-right: 10px;
-    padding: .4em .5em;
-    color: white;
-    font-size: 14px;
-    font-size: 0.875rem;
-    /* -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-    -moz-transition: -moz-transform 0.2s, opacity 0.2s;
-    transition: transform 0.2s, opacity 0.2s;
-    opacity: 0;
-    -webkit-transform-origin: 100% 50%;
-    -moz-transform-origin: 100% 50%;
-    -ms-transform-origin: 100% 50%;
-    -o-transform-origin: 100% 50%;
-    transform-origin: 100% 50%; */
-  }
+body, html {
+  height: 100%;
+}
+img {
+  max-width: 100%;
+}
+
+.cd-section {
+  min-height: 100%;
+}
+
+.cd-section:nth-of-type(odd) {
+  background-color: #3e3947;
+}
+.cd-section:nth-of-type(even) {
+  background-color: #745360;
+}
+
+.cd-nav-trigger {
+  display: none;
+}
+
+.vertical-nav {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.vertical-nav li {
+  text-align: right;
+}
+.vertical-nav a {
+  display: inline-block;
+}
+
+.vertical-nav a span {
+  display: inline-block;
+  float: right;
+  transform: scale(0.6);
+}
+
+.vertical-nav a:hover span {
+  transform: scale(1);
+}
+.vertical-nav a:hover .cd-label {
+  opacity: 1;
+}
+.vertical-nav a.is-selected .cd-dot {
+  background-color: white;
+}
+.vertical-nav .cd-dot {
+  position: relative;
+  /* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
+  top: 8px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #d88683;
+  transition: transform 0.2s, background-color 0.5s;
+  transform-origin: 50% 50%;
+}
+.vertical-nav .cd-label {
+  position: relative;
+  margin-right: 10px;
+  padding: .4em .5em;
+  color: white;
+  font-size: 14px;
+  font-size: 0.875rem;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0;
+  transform-origin: 100% 50%;
+}
+
+

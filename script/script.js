@@ -1,25 +1,41 @@
+jQuery(document).ready(function($){
+	var contentSections = $('.cd-section'),
+		navigationItems = $('.vertical-nav a');
 
+	updateNavigation();
+	$(window).on('scroll', function(){
+		updateNavigation();
+	});
 
+	//smooth scroll to the section
+	navigationItems.on('click', function(event){
+        event.preventDefault();
+        smoothScroll($(this.hash));
+    });
+    
+    //smooth scroll to second section
+    $('.cd-scroll-down').on('click', function(event){
+        event.preventDefault();
+        smoothScroll($(this.hash));
+    });
 
+	function updateNavigation() {
+		contentSections.each(function(){
+			$this = $(this);
+			var activeSection = $('.vertical-nav a[href="#' + $this.attr('id')+'"]').data('number') - 1;
+            if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && 
+                ($this.offset().top + $this.height() - $(window).height() / 2 > $(window).scrollTop())) {
+				navigationItems.eq(activeSection).addClass('is-selected');
+			}else {
+				navigationItems.eq(activeSection).removeClass('is-selected');
+			}
+		});
+	}
 
-// $(".navigation").on("click", function() {
-//     $(this).html("Clicked");
-//     $(this).hide(100);
-//     $(this).show(100);
-//     var red = getRandom(255);
-//     var green = getRandom(255);
-//     var blue = getRandom(255);
-
-//     $(this).css("background-color","rgb(" + red + "," + green + "," + blue + ")");
-// })
-
-// $(document).ready(function(){
-//     $(".navigation").mouseover(function(){
-//         $(this).css("opacity", "0.9");
-//     });
-//   });
-
-//   function getRandom(max) {
-//     var number = Math.random() * max;
-//     return number | 0;
-//   }
+	function smoothScroll(target) {
+        $('body,html').animate(
+        	{'scrollTop':target.offset().top},
+        	1000
+        );
+	}
+});
