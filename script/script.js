@@ -1,7 +1,6 @@
 jQuery(document).ready(function($){
-	var contentSections = $('.cd-section'),
+	var contentSections = $('.section'),
 		navigationItems = $('.vertical-nav a');
-
 	updateNavigation();
 	$(window).on('scroll', function(){
 		updateNavigation();
@@ -9,12 +8,6 @@ jQuery(document).ready(function($){
 
 	//smooth scroll to the section
 	navigationItems.on('click', function(event){
-        event.preventDefault();
-        smoothScroll($(this.hash));
-    });
-    
-    //smooth scroll to second section
-    $('.cd-scroll-down').on('click', function(event){
         event.preventDefault();
         smoothScroll($(this.hash));
     });
@@ -31,11 +24,10 @@ jQuery(document).ready(function($){
 			}
 		});
 	}
-
 	function smoothScroll(target) {
         $('body,html').animate(
         	{'scrollTop':target.offset().top},
-        	1000
+        	800
         );
-	}
+    }
 });
